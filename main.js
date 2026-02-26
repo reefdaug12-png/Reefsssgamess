@@ -1,41 +1,13 @@
 const GAMES = [
     {
-        id: 'snake',
-        title: 'Neon Snake',
-        category: 'Arcade',
-        description: 'Classic snake with a neon twist. Grow as long as possible.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-2 2.5h3L12 7h3L11 11h3L12 15h3L11 19h3l-2 3"/></svg>',
-        color: 'from-emerald-500/20 to-emerald-900/20',
-        type: 'internal'
-    },
-    {
-        id: 'clicker',
-        title: 'Energy Clicker',
-        category: 'Idle',
-        description: 'Generate energy, buy upgrades, and build an empire.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/></svg>',
-        color: 'from-rose-500/20 to-rose-900/20',
-        type: 'internal'
-    },
-    {
-        id: 'tetris',
-        title: 'Tetris',
-        category: 'Puzzle',
-        description: 'The world-famous puzzle game that everyone knows.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10h4v4h-4z"/><path d="M14 10h4v4h-4z"/><path d="M6 10h4v4H6z"/><path d="M10 6h4v4h-4z"/></svg>',
-        color: 'from-blue-500/20 to-blue-900/20',
+        id: 'soflo-wheelie-life',
+        title: 'Soflo Wheelie Life',
+        category: 'Action',
+        description: 'Master the art of the wheelie in this addictive simulation game.',
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0c0-1.66 1.34-3 3-3"/><path d="M13 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0c0-1.66 1.34-3 3-3"/><path d="M8 15V7l4-2 4 2v8"/></svg>',
+        color: 'from-orange-500/20 to-orange-900/20',
         type: 'iframe',
-        url: 'https://tetris.com/play-tetris'
-    },
-    {
-        id: 'pacman',
-        title: 'Pac-Man',
-        category: 'Arcade',
-        description: 'Guide Pac-Man through the maze and eat all the dots.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a9 9 0 1 0-9-9l9 9Z"/></svg>',
-        color: 'from-yellow-500/20 to-yellow-900/20',
-        type: 'iframe',
-        url: 'https://www.google.com/logos/2010/pacman10-i.html'
+        url: 'https://www.hoodamath.com/mobile/games/soflo-wheelie-life/game.html?nocheckorient=1'
     }
 ];
 
@@ -75,6 +47,17 @@ function renderGames() {
         const matchesCat = activeCategory === 'All' || g.category === activeCategory;
         return matchesSearch && matchesCat;
     });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div class="col-span-full text-center py-24 bg-zinc-900/50 rounded-3xl border border-dashed border-zinc-800">
+                <svg class="mx-auto text-zinc-700 mb-4" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <h3 class="text-xl font-bold text-zinc-500">No games available yet.</h3>
+                <p class="text-zinc-600 mt-2">Check back later for new releases!</p>
+            </div>
+        `;
+        return;
+    }
 
     grid.innerHTML = filtered.map(game => `
         <div onclick="openGame('${game.id}')" class="group cursor-pointer rounded-2xl border border-zinc-800 bg-zinc-900 overflow-hidden transition-all hover:border-emerald-500/50 hover:-translate-y-2 relative">
