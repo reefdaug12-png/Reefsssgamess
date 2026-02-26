@@ -1,15 +1,4 @@
-const GAMES = [
-    {
-        id: 'soflo-wheelie-life',
-        title: 'Soflo Wheelie Life',
-        category: 'Action',
-        description: 'Master the art of the wheelie in this addictive simulation game.',
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0c0-1.66 1.34-3 3-3"/><path d="M13 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0c0-1.66 1.34-3 3-3"/><path d="M8 15V7l4-2 4 2v8"/></svg>',
-        color: 'from-orange-500/20 to-orange-900/20',
-        type: 'iframe',
-        url: 'https://www.hoodamath.com/mobile/games/soflo-wheelie-life/game.html?nocheckorient=1'
-    }
-];
+const GAMES = [];
 
 let activeCategory = 'All';
 let searchQuery = '';
